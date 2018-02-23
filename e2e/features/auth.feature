@@ -19,7 +19,17 @@ Feature: Authentication
     Then I should see the login page
     And There should be one error saying "Wrong username or password"
   
-  Scenario: Succesful login
+  Scenario: Succesful login as Johan
     When I try to login with the username "johanobrink" and the password "my_password"
     Then I should see the profile page
     And The headline should be "Welcome Johan!"
+  
+  Scenario: Succesful login as Kiwi
+    When I try to login with the username "kiwiholmberg" and the password "some_other_password"
+    Then I should see the profile page
+    And The headline should be "Welcome Kiwi!"
+  
+  Scenario: Succesful login as Dennis
+    When I try to login with the username "dennispettersson" and the password "a_stupid_password"
+    Then I should see the profile page
+    And The headline should be "Welcome Dennis!"

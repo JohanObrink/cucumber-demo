@@ -1,19 +1,19 @@
 #!/usr/bin/env node
 const {Client} = require('pg')
 const config = require('../lib/adapters/config')
-const client = new Client(config.postgres)
 
 function checkDb () {
   return new Promise((resolve, reject) => {
-    client.once('error', err => {
-      process.stderr.write(`${err}\n${err.stack}\n\n`)
-    })
     connect(resolve, reject, 1000)
   })
 }
 
 function connect (resolve, reject, timeout) {
   process.stdout.write(`Trying to connect to db...\n`)
+  const client = new Client(config.postgres)
+  client.once('error', err => {
+    process.stderr.write(`${err}\n${err.stack}\n\n`)
+  })
   client.connect(err => {
     if (err) {
       process.stderr.write(`Connection failed with message ${err.message}. Retrying in ${timeout} ms...\n`)
@@ -41,7 +41,7 @@ function timeout (ms) {
 
 function run () {
   return Promise
-    .race([checkDb(), timeout(30000)])
+    .race([checkDb(), timeout(90000)])
     .then(() => 0)
     .catch(() => 1)
     .then(code => process.exit(code))

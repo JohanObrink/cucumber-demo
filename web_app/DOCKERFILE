@@ -1,26 +1,15 @@
-FROM node:9.6 AS sut
-
-WORKDIR /app
-
-COPY ./.npmrc /app/
-COPY ./.eslintrc /app/
-COPY package.json /app/
-RUN npm install
-
-COPY ./lib /app/lib
-COPY ./bin /app/bin
-COPY ./test /app/test
-
 FROM node:9.6
 
 WORKDIR /app
 
 COPY ./.npmrc /app/
-COPY package.json /app/
-
+COPY ./.eslintrc /app/
+COPY ./package.json /app/
 RUN npm install --production
 
-COPY --from=sut /app/lib /app/lib
+COPY ./lib /app/lib
+COPY ./bin /app/bin
+
 COPY ./migrations /app/migrations
 
 CMD npm start

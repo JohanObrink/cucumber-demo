@@ -1,28 +1,28 @@
 version: '3.4'
 services:
-  web_app:
-    build:
-      context: ./web_app
-      dockerfile: DOCKERFILE
-      target: sut
-    ports:
-      - 3000:3000
-    environment:
-      - POSTGRES_DB=app_test_db
-      - POSTGRES_USER=user
-      - POSTGRES_PASSWORD=password
-      - POSTGRES_HOST=postgres
-      - POSTGRES_PORT=5432
-      - DATABASE_URL=postgres://user:password@postgres/app_test_db
-  postgres:
+  postgres_test:
     image: postgres:10.2
     environment:
       - POSTGRES_DB=app_test_db
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
     ports:
-      - 5432:5432
-  sut:
+      - 5433:5432
+  web_app:
+    build:
+      context: ./web_app
+      dockerfile: DOCKERFILE
+    ports:
+      - 4000:3000
+    environment:
+      - PORT=3000
+      - POSTGRES_DB=app_test_db
+      - POSTGRES_USER=user
+      - POSTGRES_PASSWORD=password
+      - POSTGRES_HOST=postgres_test
+      - POSTGRES_PORT=5432
+      - DATABASE_URL=postgres://user:password@postgres_test:5432/app_test_db
+  e2e:
     build:
       context: ./e2e
       dockerfile: DOCKERFILE
@@ -32,8 +32,8 @@ services:
       - POSTGRES_DB=app_test_db
       - POSTGRES_USER=user
       - POSTGRES_PASSWORD=password
-      - POSTGRES_HOST=postgres
+      - POSTGRES_HOST=postgres_test
       - POSTGRES_PORT=5432
-      - DATABASE_URL=postgres://user:password@postgres/app_test_db
+      - DATABASE_URL=postgres://user:password@postgres_test:5432/app_test_db
       - APP_HOST=http://web_app:3000
 

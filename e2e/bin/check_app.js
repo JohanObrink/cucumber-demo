@@ -5,7 +5,7 @@ const url = `${nconf.get('app:host')}/health`
 
 const wait = (delay) => new Promise(resolve => { setTimeout(resolve, delay) })
 
-const timeout = (delay = 30000) => wait(delay)
+const timeout = (delay = 90000) => wait(delay)
   .then(() => {
     process.stderr.write(`Connection attempt timed out after ${delay} ms\n`)
     return Promise.reject()
