@@ -16,9 +16,16 @@ docker-compose up
 
 Run `npm run dev` in `/web_app` and then in `/e2e`
 
+**Pro tip**: Uncomment the `// await wait(1000)` if you want to be able to see what's happening
+in the browser. Fast shit is fast.
+
+-------
+
 ## Run in Docker
 
 ```bash
 docker-compose -f docker-compose.test.yml build
 docker-compose -f docker-compose.test.yml up
 ```
+
+...except it doesn't work ...yet :(

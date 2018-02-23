@@ -24,13 +24,11 @@ Given(/The following users exist in the database/, async function (users) {
 When(/I try to login with the username "(.*)" and the password "(.*)"/, async function (username, password) {
   const url = getUrl('login page')
   await browser.get(url)
-  await browser.wait(until.urlIs(url))
 
   await browser.findElement(By.name('username')).sendKeys(username)
   await browser.findElement(By.name('password')).sendKeys(password)
 
-  await wait(1000)
-  
+  // await wait(1000)
   await browser.findElement(By.name('submit')).click()
 })
 
@@ -39,15 +37,13 @@ Then(/I should see the (.*)/, async function (pageName) {
 })
 
 Then(/There should be one error saying "(.*)"/, async function (expectedMessage) {
-  await wait(1000)
-  
+  // await wait(1000)
   const errorMessage = await browser.findElement(By.css('ul.errors > li')).getText()
   expect(errorMessage).to.equal(expectedMessage)
 })
 
-Then(/The headline should be "Welcome (.*)!"/, async function (firstName) {
-  await wait(1000)
-  
+Then(/The headline should be "(.*)"/, async function (expectedGreeting) {
+  // await wait(1000)
   const greeting = await browser.findElement(By.css('h1')).getText()
-  expect(greeting).to.equal(`Welcome ${firstName}!`)
+  expect(greeting).to.equal(expectedGreeting)
 })
