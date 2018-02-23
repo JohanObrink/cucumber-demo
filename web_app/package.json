@@ -1,0 +1,39 @@
+{
+  "name": "web_app",
+  "version": "0.0.0",
+  "private": true,
+  "main": "bin/server",
+  "scripts": {
+    "start": "node bin/check_db.js && npm run migrate -- up && node bin/server.js",
+    "dev": "env $(cat .env) node bin/check_db.js && npm run migrate -- up && nodemon bin/server.js",
+    "migrate": "node-pg-migrate"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "cookie-parser": "~1.4.3",
+    "debug": "~2.6.9",
+    "ejs": "~2.5.7",
+    "express": "~4.15.5",
+    "express-session": "^1.15.6",
+    "morgan": "~1.9.0",
+    "nconf": "^0.10.0",
+    "node-pg-migrate": "^2.23.1",
+    "nodemon": "^1.15.1",
+    "pg-promise": "^7.5.4",
+    "scrypt": "^6.0.3",
+    "serve-favicon": "~2.4.5"
+  },
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "eslint": "^4.18.1",
+    "eslint-config-standard": "^11.0.0",
+    "eslint-plugin-import": "^2.9.0",
+    "eslint-plugin-node": "^6.0.1",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-standard": "^3.0.1",
+    "mocha": "^5.0.1",
+    "proxyquire": "^1.8.0",
+    "sinon": "^4.4.0",
+    "sinon-chai": "^2.14.0"
+  }
+}

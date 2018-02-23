@@ -1,0 +1,13 @@
+FROM node:9.6
+
+WORKDIR /app
+
+COPY ./.npmrc /app/
+COPY package.json /app/
+
+RUN npm install
+
+CMD npm start
+
+# Expose port
+EXPOSE 5000

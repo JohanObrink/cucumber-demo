@@ -54,6 +54,10 @@ typings/
 # Yarn Integrity file
 .yarn-integrity
 
-# dotenv environment variables file
-.env
+# dotenv environment variables file... except we actually want these :o
+# .env
+
+# crap
+.DS_Store
+.vscode/
 
