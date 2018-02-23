@@ -5,7 +5,7 @@
   "main": "bin/server",
   "scripts": {
     "start": "node bin/check_db.js && npm run migrate -- up && node bin/server.js",
-    "dev": "env $(cat .env) node bin/check_db.js && npm run migrate -- up && nodemon bin/server.js",
+    "dev": "env $(cat .env) node bin/check_db.js && npm run migrate -- up && env $(cat .env) nodemon bin/server.js",
     "migrate": "node-pg-migrate"
   },
   "dependencies": {

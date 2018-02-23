@@ -32,7 +32,12 @@ Then(/I should see the (.*)/, async function (pageName) {
   await browser.wait(until.urlIs(getUrl(pageName)))
 })
 
+Then(/There should be one error saying "(.*)"/, async function (expectedMessage) {
+  const errorMessage = await browser.findElement(By.css('ul.errors > li')).getText()
+  expect(errorMessage).to.equal(expectedMessage)
+})
+
 Then(/The headline should be "Welcome (.*)!"/, async function (firstName) {
-  const greeting = await browser.findElement(By.tagName('h1')).getText()
+  const greeting = await browser.findElement(By.css('h1')).getText()
   expect(greeting).to.equal(`Welcome ${firstName}!`)
 })

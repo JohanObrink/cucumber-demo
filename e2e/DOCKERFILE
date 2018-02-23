@@ -3,9 +3,12 @@ FROM node:9.6
 WORKDIR /app
 
 COPY ./.npmrc /app/
-COPY package.json /app/
+COPY ./package.json /app/
 
 RUN npm install
+
+COPY ./features /app/features
+COPY ./bin /app/bin
 
 CMD npm start
 

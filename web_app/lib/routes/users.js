@@ -11,16 +11,17 @@ router.get('/', (req, res, next) => {
   }
 })
 router.get('/login', (req, res, next) => {
-  res.render('login', {title: 'Login'})
+  res.render('login', {title: 'Login', username: '', password: '', errors: []})
 })
 router.post('/login', async (req, res, next) => {
+  const {username, password} = req.body
   try {
-    const user = await login(req.body)
+    const user = await login({username, password})
     req.session.user = user
     res.redirect(303, '/users')
   } catch (err) {
     console.error(err)
-    res.status(401).render('login', {title: 'Login', errors: ['Wrong username or password']})
+    res.status(401).render('login', {title: 'Login', username, password, errors: ['Wrong username or password']})
   }
 })
 
