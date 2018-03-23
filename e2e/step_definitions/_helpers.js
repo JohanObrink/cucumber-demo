@@ -2,24 +2,21 @@ const nconf = require('nconf').argv().env({separator: '_', lowerCase: true})
 const {kdfSync, params} = require('scrypt')
 const pgp = require('pg-promise')()
 const db = pgp(nconf.get('database:url'))
-
-function getUrl (pageName) {
-  const host = nconf.get('app:host')
-  const pages = {
-    'login page': '/users/login',
-    'profile page': '/users'
-  }
-  const page = pages[pageName]
-  if (!page) {
-    throw new Error(`Page ${pageName} unknown`)
-  }
-  return `${host}${page}`
-}
+const reqdir = require('require-dir')
 
 async function clearDb () {
   await db.tx(t => t.batch([
     t.none('TRUNCATE TABLE users')
   ]))
+}
+
+const pages = reqdir('../pages')
+function getPage (name) {
+  if (pages[name]) {
+    return pages[name]()
+  } else {
+    throw new Error (`No such page found: '${name}'`)
+  }
 }
 
 async function insertUsers (users) {
@@ -37,4 +34,11 @@ async function insertUsers (users) {
   })
 }
 
-module.exports = {getUrl, clearDb, insertUsers}
+const wait = (delay) => new Promise(resolve => setTimeout(resolve, delay))
+
+module.exports = {
+  clearDb,
+  getPage,
+  insertUsers,
+  wait
+}

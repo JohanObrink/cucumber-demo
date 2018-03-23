@@ -1,0 +1,638 @@
+[
+  {
+    "description": "  A user should be able to authenticate",
+    "keyword": "Feature",
+    "name": "Authentication",
+    "line": 1,
+    "id": "authentication",
+    "tags": [],
+    "uri": "features/auth.feature",
+    "elements": [
+      {
+        "id": "authentication;wrong-username",
+        "keyword": "Scenario",
+        "line": 12,
+        "name": "Wrong username",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "step_definitions/_setup.js:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 47000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "id",
+                      "username",
+                      "password",
+                      "firstName",
+                      "lastName"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "1",
+                      "johanobrink",
+                      "my_password",
+                      "Johan",
+                      "Öbrink"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "2",
+                      "kiwiholmberg",
+                      "some_other_password",
+                      "Kiwi",
+                      "Holmberg"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "3",
+                      "dennispettersson",
+                      "a_stupid_password",
+                      "Dennis",
+                      "Pettersson"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "The following users exist in the database",
+            "match": {
+              "location": "step_definitions/auth.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 160000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 13,
+            "name": "I try to login with the username \"fabio\" and the password \"herp derp\"",
+            "match": {
+              "location": "step_definitions/auth.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 4296000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 14,
+            "name": "I should see the login page",
+            "match": {
+              "location": "step_definitions/auth.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 15,
+            "name": "There should be one error saying \"Wrong username or password\"",
+            "match": {
+              "location": "step_definitions/auth.js:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1050000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "step_definitions/_setup.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 22000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication;wrong-password",
+        "keyword": "Scenario",
+        "line": 17,
+        "name": "Wrong password",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "step_definitions/_setup.js:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 14000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "id",
+                      "username",
+                      "password",
+                      "firstName",
+                      "lastName"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "1",
+                      "johanobrink",
+                      "my_password",
+                      "Johan",
+                      "Öbrink"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "2",
+                      "kiwiholmberg",
+                      "some_other_password",
+                      "Kiwi",
+                      "Holmberg"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "3",
+                      "dennispettersson",
+                      "a_stupid_password",
+                      "Dennis",
+                      "Pettersson"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "The following users exist in the database",
+            "match": {
+              "location": "step_definitions/auth.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 153000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 18,
+            "name": "I try to login with the username \"johanobrink\" and the password \"herp derp\"",
+            "match": {
+              "location": "step_definitions/auth.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1446000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 19,
+            "name": "I should see the login page",
+            "match": {
+              "location": "step_definitions/auth.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 20,
+            "name": "There should be one error saying \"Wrong username or password\"",
+            "match": {
+              "location": "step_definitions/auth.js:21"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1043000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "step_definitions/_setup.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication;succesful-login-as-johan",
+        "keyword": "Scenario",
+        "line": 22,
+        "name": "Succesful login as Johan",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "step_definitions/_setup.js:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "id",
+                      "username",
+                      "password",
+                      "firstName",
+                      "lastName"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "1",
+                      "johanobrink",
+                      "my_password",
+                      "Johan",
+                      "Öbrink"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "2",
+                      "kiwiholmberg",
+                      "some_other_password",
+                      "Kiwi",
+                      "Holmberg"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "3",
+                      "dennispettersson",
+                      "a_stupid_password",
+                      "Dennis",
+                      "Pettersson"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "The following users exist in the database",
+            "match": {
+              "location": "step_definitions/auth.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 152000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 23,
+            "name": "I try to login with the username \"johanobrink\" and the password \"my_password\"",
+            "match": {
+              "location": "step_definitions/auth.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1451000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 24,
+            "name": "I should see the profile page",
+            "match": {
+              "location": "step_definitions/auth.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 10000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 25,
+            "name": "The headline should be \"Welcome Johan!\"",
+            "match": {
+              "location": "step_definitions/auth.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1049000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "step_definitions/_setup.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication;succesful-login-as-kiwi",
+        "keyword": "Scenario",
+        "line": 27,
+        "name": "Succesful login as Kiwi",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "step_definitions/_setup.js:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 15000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "id",
+                      "username",
+                      "password",
+                      "firstName",
+                      "lastName"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "1",
+                      "johanobrink",
+                      "my_password",
+                      "Johan",
+                      "Öbrink"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "2",
+                      "kiwiholmberg",
+                      "some_other_password",
+                      "Kiwi",
+                      "Holmberg"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "3",
+                      "dennispettersson",
+                      "a_stupid_password",
+                      "Dennis",
+                      "Pettersson"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "The following users exist in the database",
+            "match": {
+              "location": "step_definitions/auth.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 151000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 28,
+            "name": "I try to login with the username \"kiwiholmberg\" and the password \"some_other_password\"",
+            "match": {
+              "location": "step_definitions/auth.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1469000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 29,
+            "name": "I should see the profile page",
+            "match": {
+              "location": "step_definitions/auth.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 30,
+            "name": "The headline should be \"Welcome Kiwi!\"",
+            "match": {
+              "location": "step_definitions/auth.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1040000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "step_definitions/_setup.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 18000000
+            }
+          }
+        ]
+      },
+      {
+        "id": "authentication;succesful-login-as-dennis",
+        "keyword": "Scenario",
+        "line": 32,
+        "name": "Succesful login as Dennis",
+        "tags": [],
+        "type": "scenario",
+        "steps": [
+          {
+            "keyword": "Before",
+            "hidden": true,
+            "match": {
+              "location": "step_definitions/_setup.js:10"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 12000000
+            }
+          },
+          {
+            "arguments": [
+              {
+                "rows": [
+                  {
+                    "cells": [
+                      "id",
+                      "username",
+                      "password",
+                      "firstName",
+                      "lastName"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "1",
+                      "johanobrink",
+                      "my_password",
+                      "Johan",
+                      "Öbrink"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "2",
+                      "kiwiholmberg",
+                      "some_other_password",
+                      "Kiwi",
+                      "Holmberg"
+                    ]
+                  },
+                  {
+                    "cells": [
+                      "3",
+                      "dennispettersson",
+                      "a_stupid_password",
+                      "Dennis",
+                      "Pettersson"
+                    ]
+                  }
+                ]
+              }
+            ],
+            "keyword": "Given ",
+            "line": 6,
+            "name": "The following users exist in the database",
+            "match": {
+              "location": "step_definitions/auth.js:4"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 152000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "When ",
+            "line": 33,
+            "name": "I try to login with the username \"dennispettersson\" and the password \"a_stupid_password\"",
+            "match": {
+              "location": "step_definitions/auth.js:8"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1459000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "Then ",
+            "line": 34,
+            "name": "I should see the profile page",
+            "match": {
+              "location": "step_definitions/auth.js:15"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 11000000
+            }
+          },
+          {
+            "arguments": [],
+            "keyword": "And ",
+            "line": 35,
+            "name": "The headline should be \"Welcome Dennis!\"",
+            "match": {
+              "location": "step_definitions/auth.js:26"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 1038000000
+            }
+          },
+          {
+            "keyword": "After",
+            "hidden": true,
+            "match": {
+              "location": "step_definitions/_setup.js:14"
+            },
+            "result": {
+              "status": "passed",
+              "duration": 19000000
+            }
+          }
+        ]
+      }
+    ]
+  }
+]

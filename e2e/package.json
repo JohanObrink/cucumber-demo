@@ -3,18 +3,24 @@
   "version": "0.0.0",
   "private": true,
   "scripts": {
-    "dev": "env $(cat .env) node bin/check_app.js && env $(cat .env) cucumber-js features/**/*.feature",
-    "start": "node bin/check_app.js && cucumber-js features/**/*.feature"
+    "dev": "env $(cat .env) node bin/check_app.js && env $(cat .env) nightwatch",
+    "start": "node bin/check_app.js && nightwatch"
   },
   "dependencies": {
     "chai": "^4.1.2",
     "chromedriver": "^2.35.0",
     "cucumber": "^4.0.0",
+    "cucumber-pretty": "^1.4.1",
+    "geckodriver": "^1.11.0",
     "nconf": "^0.10.0",
+    "nightwatch": "^0.9.20",
+    "nightwatch-cucumber": "^9.1.2",
     "node-fetch": "^2.0.0",
     "node-pg-migrate": "^2.23.1",
     "pg-promise": "^7.5.4",
+    "require-dir": "^1.0.0",
     "scrypt": "^6.0.3",
+    "selenium-server": "^3.11.0",
     "selenium-webdriver": "^4.0.0-alpha.1"
   }
 }
